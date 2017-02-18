@@ -1,0 +1,236 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="Keywords" content="blog"/>
+    <meta name="Description" content="blog"/>
+    <title>Simple</title>
+    <link rel="shortcut icon" href="/static/favicon.png"/>
+    <link rel="stylesheet" type="text/css" href="/main.css" />
+</head>
+<body>
+<div class="main">
+    <div class="header">
+    	<ul id="pages">
+            <li><a href="/">home</a></li>
+            <li><a href="/#/tags">tags</a></li>
+            <li><a href="/#/archive">archive</a></li>
+    	</ul>
+    </div>
+	<div class="wrap-header">
+	<h1>
+    <a href="/" id="title"></a>
+	</h1>
+	</div>
+<div id="md" style="display: none;">
+<!-- markdown -->
+
+
+#Swift 使用 Alamofire + SwiftyJson + JSONExport 一键生成网络请求 Model
+
+[toc]
+
+
+##1.工具
+>swift 是类型安全语言,OptionalType(可选类型)可以避免很多OC 中的 crash,但也给我们开发造成了很多繁琐的操作例如unwrap(解包). 
+>最典型的例子就是在网络请求解析 Json ,即使使用了 optional chain , 要获取数据也是很痛苦的一件事
+
+```
+if let JSONObject = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [[String: Any]],
+    let username = (JSONObject[0]["user"] as? [String: Any])?["name"] as? String {
+        //  username
+}
+
+```
+
+>一下介绍几个 swift 里常用的工具帮助我们在解析网络请求的时候飞起来
+
+1.[Alamofire]()
+2.[SwiftyJson](https://github.com/SwiftyJSON/SwiftyJSON)
+3.[JSONExport](https://github.com/Ahmed-Ali/JSONExport)
+4.Visual Json
+
+>`Alamofire `不用多说, AFNetworking 的 swift 版本 , 一个 swift 中使用最广泛的网络库 ; 
+>`SwiftyJson` 用于序列化 json的库 , 配合alamofire 使用方便 直接 `JSON(jsonValue)` 就可以将 alamofire 的结果返回序列化好了的 json 数据 ; 
+>`JSONExport` 是一个运行在 macOS 上通过 JSON 字符串转为 model 的开源工具，支持 Java、Objective-C 和 Swift ; 
+>`JSONExport + SwiftyJson` 可以让我们直接使用 json 报文生成 Swift 的Model文件 ! 让我们可以在从 json 数据获取 想要的数据时直接使用 `model.xxx` 的语法(还记得 OC 中的 MJExtension 吗 ? 作用就类似于这货 ! );
+>`VisualJson` 一个 mac app 能够模拟发起网络请求获取json 数据并格式化的工具
+
+##2.使用方法
+>` JSONExport `官方介绍  Installation
+Kindly clone the project, and build it using xCode 8 and above. 需要下载工程用 xcode8编译cmd+b 打包生成 macApp 就可以使用了 , 如果嫌麻烦可以直接使用我打包的  [JSONExport.app]() ,打开finder拖进"应用程序"就可以正常使用了.
+![WechatIMG90](media/14873789215765/WechatIMG90.jpeg)
+
+>下面以版本更新为例 使用 `Alamofire + SwiftyJson + JSONExport` 完成一次网络请求:
+>请求地址:
+>GET:`http://api.fir.im/apps/latest/589d9d7e959d6944d80000e6?api_token=2bc11ca72f6af8f858cf648342d6693b`
+使用`VisualJson`模拟请求,返回结果及json 报文
+
+![QQ20170218-113222@2x](media/14873789215765/QQ20170218-113222@2x.png)
+
+>将报文贴入`JSONExport`
+
+![QQ20170218-112557@2x](media/14873789215765/QQ20170218-112557@2x.png)
+
+>将生成的文件引入工程 , 在获取请求数据的地方直接使用 , 就是这么简单
+
+```
+//调用便捷方法RootClass()初始化实体模型类 , JSON(value) 是 swiftyJson 的方法
+let versionModel = RootClass(fromJson: JSON(value))
+//版本号
+let version = versionModel.version
+```
+##3.Tips
+* JSON 字符串中含有中文 字符可能会提示“invalid JSON”，转成unicode再使用，推荐个：[在线unicode转中文](http://www.bejson.com/convert/unicode_chinese/)
+* 如果生成的 model 类文件有问题就重启一下` JSONExport ` 
+
+
+
+
+<!-- markdown end -->
+</div>
+<div class="entry" id="main">
+<!-- content -->
+<h1 id="swiftalamofireswiftyjsonjsonexportmodel">Swift 使用 Alamofire + SwiftyJson + JSONExport 一键生成网络请求 Model</h1>
+
+<p>[toc]</p>
+
+<h2 id="1">1.工具</h2>
+
+<blockquote>
+  <p>swift 是类型安全语言,OptionalType(可选类型)可以避免很多OC 中的 crash,但也给我们开发造成了很多繁琐的操作例如unwrap(解包). 
+  最典型的例子就是在网络请求解析 Json ,即使使用了 optional chain , 要获取数据也是很痛苦的一件事</p>
+</blockquote>
+
+<pre><code>if let JSONObject = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [[String: Any]],
+    let username = (JSONObject[0]["user"] as? [String: Any])?["name"] as? String {
+        //  username
+}
+</code></pre>
+
+<blockquote>
+  <p>一下介绍几个 swift 里常用的工具帮助我们在解析网络请求的时候飞起来</p>
+</blockquote>
+
+<p>1.<a href="">Alamofire</a>
+2.<a href="https://github.com/SwiftyJSON/SwiftyJSON">SwiftyJson</a>
+3.<a href="https://github.com/Ahmed-Ali/JSONExport">JSONExport</a>
+4.Visual Json</p>
+
+<blockquote>
+  <p><code>Alamofire</code>不用多说, AFNetworking 的 swift 版本 , 一个 swift 中使用最广泛的网络库 ; 
+  <code>SwiftyJson</code> 用于序列化 json的库 , 配合alamofire 使用方便 直接 <code>JSON(jsonValue)</code> 就可以将 alamofire 的结果返回序列化好了的 json 数据 ; 
+  <code>JSONExport</code> 是一个运行在 macOS 上通过 JSON 字符串转为 model 的开源工具，支持 Java、Objective-C 和 Swift ; 
+  <code>JSONExport + SwiftyJson</code> 可以让我们直接使用 json 报文生成 Swift 的Model文件 ! 让我们可以在从 json 数据获取 想要的数据时直接使用 <code>model.xxx</code> 的语法(还记得 OC 中的 MJExtension 吗 ? 作用就类似于这货 ! );
+  <code>VisualJson</code> 一个 mac app 能够模拟发起网络请求获取json 数据并格式化的工具</p>
+</blockquote>
+
+<h2 id="2">2.使用方法</h2>
+
+<blockquote>
+  <p><code>JSONExport</code>官方介绍  Installation
+  Kindly clone the project, and build it using xCode 8 and above. 需要下载工程用 xcode8编译cmd+b 打包生成 macApp 就可以使用了 , 如果嫌麻烦可以直接使用我打包的  <a href="">JSONExport.app</a> ,打开finder拖进"应用程序"就可以正常使用了.
+  <img src="media/14873789215765/WechatIMG90.jpeg" alt="WechatIMG90" title=""></p>
+  
+  <p>下面以版本更新为例 使用 <code>Alamofire + SwiftyJson + JSONExport</code> 完成一次网络请求:
+  请求地址:
+  GET:<code>http://api.fir.im/apps/latest/589d9d7e959d6944d80000e6?api_token=2bc11ca72f6af8f858cf648342d6693b</code>
+  使用<code>VisualJson</code>模拟请求,返回结果及json 报文</p>
+</blockquote>
+
+<p><img src="media/14873789215765/QQ20170218-113222@2x.png" alt="QQ20170218-113222@2x" title=""></p>
+
+<blockquote>
+  <p>将报文贴入<code>JSONExport</code></p>
+</blockquote>
+
+<p><img src="media/14873789215765/QQ20170218-112557@2x.png" alt="QQ20170218-112557@2x" title=""></p>
+
+<blockquote>
+  <p>将生成的文件引入工程 , 在获取请求数据的地方直接使用 , 就是这么简单</p>
+</blockquote>
+
+<pre><code>//调用便捷方法RootClass()初始化实体模型类 , JSON(value) 是 swiftyJson 的方法
+let versionModel = RootClass(fromJson: JSON(value))
+//版本号
+let version = versionModel.version
+</code></pre>
+
+<h2 id="3tips">3.Tips</h2>
+
+<ul>
+<li>JSON 字符串中含有中文 字符可能会提示“invalid JSON”，转成unicode再使用，推荐个：<a href="http://www.bejson.com/convert/unicode_chinese/">在线unicode转中文</a></li>
+<li>如果生成的 model 类文件有问题就重启一下<code>JSONExport</code> </li>
+</ul>
+<!-- content end -->
+</div>
+<br>
+<br>
+    <div id="disqus_thread"></div>
+	<div class="footer">
+		<p>© Copyright 2014 by isnowfy, Designed by isnowfy</p>
+	</div>
+</div>
+<script src="main.js"></script>
+<script id="content" type="text/mustache">
+    <h1>{{title}}</h1>
+    <div class="tag">
+    {{date}}
+    {{#tags}}
+    <a href="/#/tag/{{name}}">#{{name}}</a>
+    {{/tags}}
+    </div>
+</script>
+<script id="pagesTemplate" type="text/mustache">
+    {{#pages}}
+    <li>
+        <a href="{{path}}">{{title}}</a>
+    </li>
+    {{/pages}}
+</script>
+<script>
+$(document).ready(function() {
+    $.ajax({
+        url: "main.json",
+        type: "GET",
+        dataType: "json",
+        success: function(data) {
+            $("#title").html(data.name);
+            var pagesTemplate = Hogan.compile($("#pagesTemplate").html());
+            var pagesHtml = pagesTemplate.render({"pages": data.pages});
+            $("#pages").append(pagesHtml);
+            //path
+            var path = "JSONExport.html";
+            //path end
+            var now = 0;
+            for (var i = 0; i < data.posts.length; ++i)
+                if (path == data.posts[i].path)
+                    now = i;
+            var post = data.posts[now];
+            var tmp = post.tags.split(" ");
+            var tags = [];
+            for (var i = 0; i < tmp.length; ++i)
+                if (tmp[i].length > 0)
+                    tags.push({"name": tmp[i]});
+            var contentTemplate = Hogan.compile($("#content").html());
+            var contentHtml = contentTemplate.render({"title": post.title, "tags": tags, "date": post.date});
+            $("#main").prepend(contentHtml);
+            if (data.disqus_shortname.length > 0) {
+                var disqus_shortname = data.disqus_shortname;
+                (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            }
+        }
+    });
+});
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ["\\(", "\\)"]], processEscapes: true}});
+</script>
+</body>
+</html>
