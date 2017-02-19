@@ -45,31 +45,36 @@ if let JSONObject = try JSONSerialization.jsonObject(with: data, options: .allow
 >一下介绍几个 swift 里常用的工具帮助我们在解析网络请求的时候飞起来
 
 1.[Alamofire](https://github.com/Alamofire/Alamofire)
-2.[SwiftyJson](https://github.com/SwiftyJSON/SwiftyJSON)
+2.[SwiftyJson](https://github.com/SwiftyJSON/SwiftyJSON) [JSONExport.app](https://github.com/AsHighAsHonor/YYangs-Pepository/blob/master/Sources/JSONExport.app.zip)
 3.[JSONExport](https://github.com/Ahmed-Ali/JSONExport)
 4.Visual Json
 
 >`Alamofire `不用多说, AFNetworking 的 swift 版本 , 一个 swift 中使用最广泛的网络库 ; 
+
 >`SwiftyJson` 用于序列化 json的库 , 配合alamofire 使用方便 直接 `JSON(jsonValue)` 就可以将 alamofire 的结果返回序列化好了的 json 数据 ; 
+
 >`JSONExport` 是一个运行在 macOS 上通过 JSON 字符串转为 model 的开源工具，支持 Java、Objective-C 和 Swift ; 
+
 >`JSONExport + SwiftyJson` 可以让我们直接使用 json 报文生成 Swift 的Model文件 ! 让我们可以在从 json 数据获取 想要的数据时直接使用 `model.xxx` 的语法(还记得 OC 中的 MJExtension 吗 ? 作用就类似于这货 ! );
+
 >`VisualJson` 一个 mac app 能够模拟发起网络请求获取json 数据并格式化的工具
 
 ##2.使用方法
 >` JSONExport `官方介绍  Installation
-Kindly clone the project, and build it using xCode 8 and above. 需要下载工程用 xcode8编译cmd+b 打包生成 macApp 就可以使用了 , 如果嫌麻烦可以直接使用我打包的  [JSONExport.app]() ,打开finder拖进"应用程序"就可以正常使用了.
-![WechatIMG90](media/14873789215765/WechatIMG90.jpeg)
+Kindly clone the project, and build it using xCode 8 and above. 需要下载工程用 xcode8编译cmd+b 打包生成 macApp 就可以使用了 , 如果嫌麻烦可以直接使用我打包的  [JSONExport.app](https://github.com/AsHighAsHonor/YYangs-Pepository/blob/master/Sources/JSONExport.app.zip) ,打开finder拖进"应用程序"就可以正常使用了.
+
+![WechatIMG90](https://github.com/AsHighAsHonor/YYangs-Pepository/blob/master/Image/WechatIMG90.jpeg)
 
 >下面以版本更新为例 使用 `Alamofire + SwiftyJson + JSONExport` 完成一次网络请求:
 >请求地址:
 >GET:`http://api.fir.im/apps/latest/589d9d7e959d6944d80000e6?api_token=2bc11ca72f6af8f858cf648342d6693b`
 使用`VisualJson`模拟请求,返回结果及json 报文
 
-![QQ20170218-113222@2x](media/14873789215765/QQ20170218-113222@2x.png)
+![QQ20170218-113222@2x](https://github.com/AsHighAsHonor/YYangs-Pepository/blob/master/Image/QQ20170218-113222%402x.png)
 
 >将报文贴入`JSONExport`
 
-![QQ20170218-112557@2x](media/14873789215765/QQ20170218-112557@2x.png)
+![QQ20170218-112557@2x](https://github.com/AsHighAsHonor/YYangs-Pepository/blob/master/Image/QQ20170218-112557%402x.png)
 
 >将生成的文件引入工程 , 在获取请求数据的地方直接使用 , 就是这么简单
 
@@ -112,38 +117,45 @@ let version = versionModel.version
 </blockquote>
 
 <p>1.<a href="https://github.com/Alamofire/Alamofire">Alamofire</a>
-2.<a href="https://github.com/SwiftyJSON/SwiftyJSON">SwiftyJson</a>
+2.<a href="https://github.com/SwiftyJSON/SwiftyJSON">SwiftyJson</a> <a href="https://github.com/AsHighAsHonor/YYangs-Pepository/blob/master/Sources/JSONExport.app.zip">JSONExport.app</a>
 3.<a href="https://github.com/Ahmed-Ali/JSONExport">JSONExport</a>
 4.Visual Json</p>
 
 <blockquote>
-  <p><code>Alamofire</code>不用多说, AFNetworking 的 swift 版本 , 一个 swift 中使用最广泛的网络库 ; 
-  <code>SwiftyJson</code> 用于序列化 json的库 , 配合alamofire 使用方便 直接 <code>JSON(jsonValue)</code> 就可以将 alamofire 的结果返回序列化好了的 json 数据 ; 
-  <code>JSONExport</code> 是一个运行在 macOS 上通过 JSON 字符串转为 model 的开源工具，支持 Java、Objective-C 和 Swift ; 
-  <code>JSONExport + SwiftyJson</code> 可以让我们直接使用 json 报文生成 Swift 的Model文件 ! 让我们可以在从 json 数据获取 想要的数据时直接使用 <code>model.xxx</code> 的语法(还记得 OC 中的 MJExtension 吗 ? 作用就类似于这货 ! );
-  <code>VisualJson</code> 一个 mac app 能够模拟发起网络请求获取json 数据并格式化的工具</p>
+  <p><code>Alamofire</code>不用多说, AFNetworking 的 swift 版本 , 一个 swift 中使用最广泛的网络库 ; </p>
+  
+  <p><code>SwiftyJson</code> 用于序列化 json的库 , 配合alamofire 使用方便 直接 <code>JSON(jsonValue)</code> 就可以将 alamofire 的结果返回序列化好了的 json 数据 ; </p>
+  
+  <p><code>JSONExport</code> 是一个运行在 macOS 上通过 JSON 字符串转为 model 的开源工具，支持 Java、Objective-C 和 Swift ; </p>
+  
+  <p><code>JSONExport + SwiftyJson</code> 可以让我们直接使用 json 报文生成 Swift 的Model文件 ! 让我们可以在从 json 数据获取 想要的数据时直接使用 <code>model.xxx</code> 的语法(还记得 OC 中的 MJExtension 吗 ? 作用就类似于这货 ! );</p>
+  
+  <p><code>VisualJson</code> 一个 mac app 能够模拟发起网络请求获取json 数据并格式化的工具</p>
 </blockquote>
 
 <h2 id="2">2.使用方法</h2>
 
 <blockquote>
   <p><code>JSONExport</code>官方介绍  Installation
-  Kindly clone the project, and build it using xCode 8 and above. 需要下载工程用 xcode8编译cmd+b 打包生成 macApp 就可以使用了 , 如果嫌麻烦可以直接使用我打包的  <a href="">JSONExport.app</a> ,打开finder拖进"应用程序"就可以正常使用了.
-  <img src="media/14873789215765/WechatIMG90.jpeg" alt="WechatIMG90" title=""></p>
-  
+  Kindly clone the project, and build it using xCode 8 and above. 需要下载工程用 xcode8编译cmd+b 打包生成 macApp 就可以使用了 , 如果嫌麻烦可以直接使用我打包的  <a href="https://github.com/AsHighAsHonor/YYangs-Pepository/blob/master/Sources/JSONExport.app.zip">JSONExport.app</a> ,打开finder拖进"应用程序"就可以正常使用了.</p>
+</blockquote>
+
+<p><img src="https://github.com/AsHighAsHonor/YYangs-Pepository/blob/master/Image/WechatIMG90.jpeg" alt="WechatIMG90" title=""></p>
+
+<blockquote>
   <p>下面以版本更新为例 使用 <code>Alamofire + SwiftyJson + JSONExport</code> 完成一次网络请求:
   请求地址:
   GET:<code>http://api.fir.im/apps/latest/589d9d7e959d6944d80000e6?api_token=2bc11ca72f6af8f858cf648342d6693b</code>
   使用<code>VisualJson</code>模拟请求,返回结果及json 报文</p>
 </blockquote>
 
-<p><img src="media/14873789215765/QQ20170218-113222@2x.png" alt="QQ20170218-113222@2x" title=""></p>
+<p><img src="https://github.com/AsHighAsHonor/YYangs-Pepository/blob/master/Image/QQ20170218-113222%402x.png" alt="QQ20170218-113222@2x" title=""></p>
 
 <blockquote>
   <p>将报文贴入<code>JSONExport</code></p>
 </blockquote>
 
-<p><img src="media/14873789215765/QQ20170218-112557@2x.png" alt="QQ20170218-112557@2x" title=""></p>
+<p><img src="https://github.com/AsHighAsHonor/YYangs-Pepository/blob/master/Image/QQ20170218-112557%402x.png" alt="QQ20170218-112557@2x" title=""></p>
 
 <blockquote>
   <p>将生成的文件引入工程 , 在获取请求数据的地方直接使用 , 就是这么简单</p>
