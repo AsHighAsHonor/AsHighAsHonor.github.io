@@ -1,0 +1,146 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="Keywords" content="blog"/>
+    <meta name="Description" content="blog"/>
+    <title>Simple</title>
+    <link rel="shortcut icon" href="/static/favicon.png"/>
+    <link rel="stylesheet" type="text/css" href="/main.css" />
+</head>
+<body>
+<div class="main">
+    <div class="header">
+    	<ul id="pages">
+            <li><a href="/">home</a></li>
+            <li><a href="/#/tags">tags</a></li>
+            <li><a href="/#/archive">archive</a></li>
+    	</ul>
+    </div>
+	<div class="wrap-header">
+	<h1>
+    <a href="/" id="title"></a>
+	</h1>
+	</div>
+<div id="md" style="display: none;">
+<!-- markdown -->
+#Xcode8.+ sizeclass 
+
+>Xcode8 之后, 如果你使用 sizeclass来适配屏幕 , 你会发现与之前版本的使用起来不同了 , 经过一番查找介绍下新版本 sizeclass 的使用方法. 如果你使用过 sizeclass  就应该了解 Compat/Regular的含义,如图:
+![](https://raw.githubusercontent.com/AsHighAsHonor/YYangs-Pepository/master/Image/55369720_1.png)
+
+>Xcode8 之前版本的 sizeclass 是长这样的
+![](https://raw.githubusercontent.com/AsHighAsHonor/YYangs-Pepository/master/Image/154SUB3-6.png)
+
+>Xcode8+的 sizeclass 是这样  ; 首先你红框区域你没有选择特殊设备的情况下是 白色的, 此时设置的所有约束适用于所有设备横竖屏的情况 
+![](https://raw.githubusercontent.com/AsHighAsHonor/YYangs-Pepository/master/Image/QQ20170118-1%402x.png)
+
+
+>当你点击右下角"vary for trails" 此时会弹出框,当你选择 width或者 height 时 , 整个区域背景会变成蓝色,留意左侧的"view as :" 部分,并且下方设备图标会显示所有符合"width == compat"状态的所有设备, 此时设置的约束代表为所有 width 为"compat" 状态的约束(此时设置的约束只针对 with 为 compat 状态,不管设备的 height 是什么状态),设置完约束后点击"done varying",你就会发现设置的约束在特定 width 状态下就会生效了(该状态独有约束).
+>
+![](https://raw.githubusercontent.com/AsHighAsHonor/YYangs-Pepository/master/Image/QQ20170118-0%402x.png)
+>
+![](https://raw.githubusercontent.com/AsHighAsHonor/YYangs-Pepository/master/Image/QQ20170118-2%402x.png)
+
+>
+![](https://raw.githubusercontent.com/AsHighAsHonor/YYangs-Pepository/master/Image/QQ20170118-1%402x%20copy.png)
+
+
+
+<!-- markdown end -->
+</div>
+<div class="entry" id="main">
+<!-- content -->
+<h1 id="xcode8sizeclass">Xcode8.+ sizeclass</h1>
+
+<blockquote>
+  <p>Xcode8 之后, 如果你使用 sizeclass来适配屏幕 , 你会发现与之前版本的使用起来不同了 , 经过一番查找介绍下新版本 sizeclass 的使用方法. 如果你使用过 sizeclass  就应该了解 Compat/Regular的含义,如图:
+  <img src="https://raw.githubusercontent.com/AsHighAsHonor/YYangs-Pepository/master/Image/55369720_1.png" alt="" title=""></p>
+  
+  <p>Xcode8 之前版本的 sizeclass 是长这样的
+  <img src="https://raw.githubusercontent.com/AsHighAsHonor/YYangs-Pepository/master/Image/154SUB3-6.png" alt="" title=""></p>
+  
+  <p>Xcode8+的 sizeclass 是这样  ; 首先你红框区域你没有选择特殊设备的情况下是 白色的, 此时设置的所有约束适用于所有设备横竖屏的情况 
+  <img src="https://raw.githubusercontent.com/AsHighAsHonor/YYangs-Pepository/master/Image/QQ20170118-1%402x.png" alt="" title=""></p>
+  
+  <p>当你点击右下角"vary for trails" 此时会弹出框,当你选择 width或者 height 时 , 整个区域背景会变成蓝色,留意左侧的"view as :" 部分,并且下方设备图标会显示所有符合"width == compat"状态的所有设备, 此时设置的约束代表为所有 width 为"compat" 状态的约束(此时设置的约束只针对 with 为 compat 状态,不管设备的 height 是什么状态),设置完约束后点击"done varying",你就会发现设置的约束在特定 width 状态下就会生效了(该状态独有约束).</p>
+  
+  <p><img src="https://raw.githubusercontent.com/AsHighAsHonor/YYangs-Pepository/master/Image/QQ20170118-0%402x.png" alt="" title=""></p>
+  
+  <p><img src="https://raw.githubusercontent.com/AsHighAsHonor/YYangs-Pepository/master/Image/QQ20170118-2%402x.png" alt="" title=""></p>
+</blockquote>
+
+<p>&gt;
+<img src="https://raw.githubusercontent.com/AsHighAsHonor/YYangs-Pepository/master/Image/QQ20170118-1%402x%20copy.png" alt="" title=""></p>
+<!-- content end -->
+</div>
+<br>
+<br>
+    <div id="disqus_thread"></div>
+	<div class="footer">
+		<p>© Copyright 2014 by isnowfy, Designed by isnowfy</p>
+	</div>
+</div>
+<script src="main.js"></script>
+<script id="content" type="text/mustache">
+    <h1>{{title}}</h1>
+    <div class="tag">
+    {{date}}
+    {{#tags}}
+    <a href="/#/tag/{{name}}">#{{name}}</a>
+    {{/tags}}
+    </div>
+</script>
+<script id="pagesTemplate" type="text/mustache">
+    {{#pages}}
+    <li>
+        <a href="{{path}}">{{title}}</a>
+    </li>
+    {{/pages}}
+</script>
+<script>
+$(document).ready(function() {
+    $.ajax({
+        url: "main.json",
+        type: "GET",
+        dataType: "json",
+        success: function(data) {
+            $("#title").html(data.name);
+            var pagesTemplate = Hogan.compile($("#pagesTemplate").html());
+            var pagesHtml = pagesTemplate.render({"pages": data.pages});
+            $("#pages").append(pagesHtml);
+            //path
+            var path = "SizeClass.html";
+            //path end
+            var now = 0;
+            for (var i = 0; i < data.posts.length; ++i)
+                if (path == data.posts[i].path)
+                    now = i;
+            var post = data.posts[now];
+            var tmp = post.tags.split(" ");
+            var tags = [];
+            for (var i = 0; i < tmp.length; ++i)
+                if (tmp[i].length > 0)
+                    tags.push({"name": tmp[i]});
+            var contentTemplate = Hogan.compile($("#content").html());
+            var contentHtml = contentTemplate.render({"title": post.title, "tags": tags, "date": post.date});
+            $("#main").prepend(contentHtml);
+            if (data.disqus_shortname.length > 0) {
+                var disqus_shortname = data.disqus_shortname;
+                (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            }
+        }
+    });
+});
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ["\\(", "\\)"]], processEscapes: true}});
+</script>
+</body>
+</html>
