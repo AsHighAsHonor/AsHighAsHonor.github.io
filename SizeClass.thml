@@ -28,23 +28,23 @@
 #Xcode8.+ sizeclass 
 
 >Xcode8 之后, 如果你使用 sizeclass来适配屏幕 , 你会发现与之前版本的使用起来不同了 , 经过一番查找介绍下新版本 sizeclass 的使用方法. 如果你使用过 sizeclass  就应该了解 Compat/Regular的含义,如图:
-![](https://github.com/AsHighAsHonor/YYangs-Pepository/blob/master/Image/55369720_1.png)
+![](https://raw.githubusercontent.com/AsHighAsHonor/YYangs-Pepository/master/Image/55369720_1.png)
 
 >Xcode8 之前版本的 sizeclass 是长这样的
-![](https://github.com/AsHighAsHonor/YYangs-Pepository/blob/master/Image/154SUB3-6.png)
+![](https://raw.githubusercontent.com/AsHighAsHonor/YYangs-Pepository/master/Image/154SUB3-6.png)
 
 >Xcode8+的 sizeclass 是这样  ; 首先你红框区域你没有选择特殊设备的情况下是 白色的, 此时设置的所有约束适用于所有设备横竖屏的情况 
-![](https://github.com/AsHighAsHonor/YYangs-Pepository/blob/master/Image/QQ20170118-1%402x.png)
+![](https://raw.githubusercontent.com/AsHighAsHonor/YYangs-Pepository/master/Image/QQ20170118-1%402x.png)
 
 
 >当你点击右下角"vary for trails" 此时会弹出框,当你选择 width或者 height 时 , 整个区域背景会变成蓝色,留意左侧的"view as :" 部分,并且下方设备图标会显示所有符合"width == compat"状态的所有设备, 此时设置的约束代表为所有 width 为"compat" 状态的约束(此时设置的约束只针对 with 为 compat 状态,不管设备的 height 是什么状态),设置完约束后点击"done varying",你就会发现设置的约束在特定 width 状态下就会生效了(该状态独有约束).
 >
-![](https://github.com/AsHighAsHonor/YYangs-Pepository/blob/master/Image/QQ20170118-0%402x.png)
+![](https://raw.githubusercontent.com/AsHighAsHonor/YYangs-Pepository/master/Image/QQ20170118-0%402x.png)
 >
-![](https://github.com/AsHighAsHonor/YYangs-Pepository/blob/master/Image/QQ20170118-2%402x.png)
+![](https://raw.githubusercontent.com/AsHighAsHonor/YYangs-Pepository/master/Image/QQ20170118-2%402x.png)
 
 >
-![](https://github.com/AsHighAsHonor/YYangs-Pepository/blob/master/Image/QQ20170118-1%402x%20copy.png)
+![](https://raw.githubusercontent.com/AsHighAsHonor/YYangs-Pepository/master/Image/QQ20170118-1%402x%20copy.png)
 
 
 
@@ -56,23 +56,23 @@
 
 <blockquote>
   <p>Xcode8 之后, 如果你使用 sizeclass来适配屏幕 , 你会发现与之前版本的使用起来不同了 , 经过一番查找介绍下新版本 sizeclass 的使用方法. 如果你使用过 sizeclass  就应该了解 Compat/Regular的含义,如图:
-  <img src="https://github.com/AsHighAsHonor/YYangs-Pepository/blob/master/Image/55369720_1.png" alt="" title="" id="exifviewer-img-1" exifid="1507728121" oldsrc="https://github.com/AsHighAsHonor/YYangs-Pepository/blob/master/Image/55369720_1.png"></p>
+  <img src="https://raw.githubusercontent.com/AsHighAsHonor/YYangs-Pepository/master/Image/55369720_1.png" alt="" title=""></p>
   
   <p>Xcode8 之前版本的 sizeclass 是长这样的
-  <img src="https://github.com/AsHighAsHonor/YYangs-Pepository/blob/master/Image/154SUB3-6.png" alt="" title=""></p>
+  <img src="https://raw.githubusercontent.com/AsHighAsHonor/YYangs-Pepository/master/Image/154SUB3-6.png" alt="" title=""></p>
   
   <p>Xcode8+的 sizeclass 是这样  ; 首先你红框区域你没有选择特殊设备的情况下是 白色的, 此时设置的所有约束适用于所有设备横竖屏的情况 
-  <img src="https://github.com/AsHighAsHonor/YYangs-Pepository/blob/master/Image/QQ20170118-1%402x.png" alt="" title=""></p>
+  <img src="https://raw.githubusercontent.com/AsHighAsHonor/YYangs-Pepository/master/Image/QQ20170118-1%402x.png" alt="" title=""></p>
   
   <p>当你点击右下角"vary for trails" 此时会弹出框,当你选择 width或者 height 时 , 整个区域背景会变成蓝色,留意左侧的"view as :" 部分,并且下方设备图标会显示所有符合"width == compat"状态的所有设备, 此时设置的约束代表为所有 width 为"compat" 状态的约束(此时设置的约束只针对 with 为 compat 状态,不管设备的 height 是什么状态),设置完约束后点击"done varying",你就会发现设置的约束在特定 width 状态下就会生效了(该状态独有约束).</p>
   
-  <p><img src="https://github.com/AsHighAsHonor/YYangs-Pepository/blob/master/Image/QQ20170118-0%402x.png" alt="" title=""></p>
+  <p><img src="https://raw.githubusercontent.com/AsHighAsHonor/YYangs-Pepository/master/Image/QQ20170118-0%402x.png" alt="" title=""></p>
   
-  <p><img src="https://github.com/AsHighAsHonor/YYangs-Pepository/blob/master/Image/QQ20170118-2%402x.png" alt="" title=""></p>
+  <p><img src="https://raw.githubusercontent.com/AsHighAsHonor/YYangs-Pepository/master/Image/QQ20170118-2%402x.png" alt="" title=""></p>
 </blockquote>
 
 <p>&gt;
-<img src="https://github.com/AsHighAsHonor/YYangs-Pepository/blob/master/Image/QQ20170118-1%402x%20copy.png" alt="" title=""></p>
+<img src="https://raw.githubusercontent.com/AsHighAsHonor/YYangs-Pepository/master/Image/QQ20170118-1%402x%20copy.png" alt="" title=""></p>
 <!-- content end -->
 </div>
 <br>
